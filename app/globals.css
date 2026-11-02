@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-bodoni: 'Bodoni Moda', Georgia, serif;
+    --font-jakarta: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #fcf9f3;
+    color: #1c1c18;
+    font-family: var(--font-jakarta);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f0eee8;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cec5bd;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7e5706;
+  }
+}
+
+/* Print styling for VAT Tax Invoices & Packing Slips */
+@media print {
+  header,
+  footer,
+  aside,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

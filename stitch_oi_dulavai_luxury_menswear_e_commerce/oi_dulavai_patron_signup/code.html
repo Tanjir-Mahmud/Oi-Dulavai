@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-tint":"#615e5b","on-tertiary":"#ffffff","tertiary-container":"#410004","on-secondary-container":"#795201","surface":"#fcf9f3","primary-container":"#1d1b19","on-surface-variant":"#4c4640","background":"#fcf9f3","on-tertiary-container":"#d65d59","secondary":"#7e5706","on-background":"#1c1c18","surface-container":"#f0eee8","secondary-fixed-dim":"#f3be69","tertiary-fixed":"#ffdad7","error-container":"#ffdad6","surface-dim":"#dcdad4","outline":"#7d766f","surface-container-lowest":"#ffffff","on-error-container":"#93000a","secondary-container":"#ffc973","on-error":"#ffffff","outline-variant":"#cec5bd","inverse-on-surface":"#f3f0ea","tertiary-fixed-dim":"#ffb3ae","on-secondary-fixed-variant":"#604100","tertiary":"#000000","primary-fixed-dim":"#cbc5c2","on-primary-fixed":"#1d1b19","surface-bright":"#fcf9f3","on-surface":"#1c1c18","on-tertiary-fixed":"#410004","surface-container-low":"#f6f3ed","surface-container-high":"#ebe8e2","on-primary":"#ffffff","on-primary-container":"#878380","on-tertiary-fixed-variant":"#852222","primary-fixed":"#e8e1dd","on-secondary-fixed":"#281800","secondary-fixed":"#ffddae","inverse-surface":"#31312d","surface-container-highest":"#e5e2dc","primary":"#000000","error":"#ba1a1a","on-primary-fixed-variant":"#494644","on-secondary":"#ffffff","inverse-primary":"#cbc5c2","surface-variant":"#e5e2dc"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"gutter-mobile":"0.75rem","space-lg":"1.5rem","space-md":"1rem",margin:"3rem","space-xl":"2.5rem","space-sm":"0.5rem",gutter:"1.5rem","space-xs":"0.25rem","margin-mobile":"1.25rem"},fontFamily:{"headline-xl-mobile":["Bodoni Moda"],"display-hero-mobile":["Bodoni Moda"],"display-hero":["Bodoni Moda"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-caps":["Plus Jakarta Sans"],"headline-md":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"spec-code":["JetBrains Mono"],"spec-code-sm":["JetBrains Mono"],"headline-xl":["Bodoni Moda"],"body-sm":["Plus Jakarta Sans"]},fontSize:{"headline-xl-mobile":["32px",{lineHeight:"38px",letterSpacing:"0em",fontWeight:"400"}],"display-hero-mobile":["38px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"400"}],"display-hero":["64px",{lineHeight:"72px",letterSpacing:"-0.02em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],"body-md":["15px",{lineHeight:"24px",fontWeight:"400"}],"label-caps":["11px",{lineHeight:"16px",letterSpacing:"0.15em",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",fontWeight:"500"}],"headline-lg":["32px",{lineHeight:"40px",fontWeight:"400"}],"spec-code":["12px",{lineHeight:"18px",letterSpacing:"0.02em",fontWeight:"400"}],"spec-code-sm":["10px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-xl":["44px",{lineHeight:"52px",letterSpacing:"-0.01em",fontWeight:"400"}],"body-sm":["13px",{lineHeight:"20px",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex flex-col text-left group" href="#"><span class="font-headline-md text-headline-md tracking-tight text-on-surface uppercase">Oi Dulavai</span><span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">ঐ দুলাভাই · Haute Couture</span></a></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface transition-colors" data-path="patron-sign-in" href="#">Patron Sign In</a><a aria-current="page" class="uppercase transition-colors text-primary font-bold" data-path="patron-registration" href="#">Atelier Registry</a><a class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface transition-colors" data-path="concierge-access" href="#">Concierge Key</a></nav><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container px-space-sm py-space-xs rounded text-on-surface"><button class="font-spec-code-sm text-spec-code-sm uppercase px-space-xs text-primary font-medium hover:text-secondary transition-colors">EN</button><span class="text-outline-variant text-spec-code-sm">/</span><button class="font-spec-code-sm text-spec-code-sm uppercase px-space-xs text-on-surface-variant hover:text-on-surface transition-colors">বাংলা</button></div><a class="hidden sm:inline-flex items-center gap-space-xs font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">west</span><span>Boutique Salon</span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XdpcEpLHEfFtUa1_nf1DagORXy59ozb0C3o5WfWd7POJp6tlk-5oYb34oO663ZXrYIeE30kS7Jf9PR3i6FAXTMAHRFgwroIPu8rSYGxzoag9TDqO_3Z9e5oEo4B-poWEqxqUO_cY0-aduLPvBuXUNdnDs3jx1kp3pHXH8AHK-CjClyAaE0MTp-SMyBJMcBrZvxtrx_a5LpaJ6rqcmU-T8qH2jepByZk5Pst38dEE4e5g4KPMSJ6dyLhgM"/></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Subtle decorative ambient gradient in warm alabaster canvas -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-40 right-10 w-96 h-96 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-surface-container-high/60 blur-2xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin py-space-xl relative z-10">
+<!-- Overline & Atelier Metadata Banner -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-spec-code-sm text-spec-code-sm text-secondary uppercase tracking-widest">REGISTRY PROTOCOL · DOSSIER NO. 880-OD</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant uppercase">BENEFICE: ৳ 2,000 WELCOME GRANT</span>
+<span class="text-outline-variant">/</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant uppercase">EDITION 2025</span>
+</div>
+</div>
+<!-- Main Asymmetric Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left Column: Editorial Art Direction, Value Pillars & Micro-visuals (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-xl">
+<!-- Hero Typography Cluster -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">HAUTE COUTURE MEMBERSHIP</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-none">
+              Join The Sovereign Patronage
+            </h1>
+<p class="font-headline-md text-headline-md text-secondary italic -mt-space-xs">
+              সার্বভৌম সদস্যপদ
+            </p>
+<p class="font-body-md text-body-md text-on-surface-variant pt-space-xs leading-relaxed">
+              Unlock complimentary bespoke monogramming, private chauffeur deliveries across Dhaka, and priority salon appointments with our master zardozi artisans.
+            </p>
+</div>
+<!-- Feature Vignette Card -->
+<div class="relative bg-surface-container p-space-lg flex flex-col gap-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-spec-code-sm text-spec-code-sm text-secondary uppercase">SOVEREIGN PRIVILEGES</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+</div>
+<!-- Privilege List -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">diamond</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Signature Handspun Monogramming</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">24K gold zari or silk tone-on-tone initials on cuffs and plackets.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">directions_car</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Gloved Chauffeur Dispatch</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Crease-free garment transportation in temperature-controlled trunks.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">straighten</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Private Salon Fitting Chambers</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Reserved suites at Banani, Gulshan VIP Manor, and Sylhet.</span>
+</div>
+</div>
+</div>
+<!-- Micro SVG Certificate Graphic -->
+<div class="bg-surface-container-lowest p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<svg class="w-8 h-8 text-secondary" fill="none" viewbox="0 0 32 32">
+<circle cx="16" cy="16" r="14" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1.5"></circle>
+<path d="M16 6L18.5 12.5H25.5L20 16.5L22 23L16 19.5L10 23L12 16.5L6.5 12.5H13.5L16 6Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1"></path>
+</svg>
+<div class="flex flex-col">
+<span class="font-spec-code-sm text-spec-code-sm font-medium text-on-surface uppercase">Imperial Guarantee</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Authentic Dhaka Muslin &amp; Rajshahi Silk</span>
+</div>
+</div>
+<span class="font-spec-code text-spec-code text-secondary font-bold">100% PUR</span>
+</div>
+</div>
+<!-- Editorial Atelier Image Preview -->
+<div class="relative overflow-hidden bg-surface-container-high aspect-[16/9] shadow-md group">
+<img class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105" data-alt="Close-up architectural shot of bespoke South Asian wedding menswear, intricate antique gold zardozi embroidery on raw cream tussar silk, illuminated by warm soft museum lighting with brass tailoring tools lying beside it." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACTA8QxwMBOAAJAMjOsP8qPMjMBCw7X1bYHac85jQ1iIxlvfH3dT7oC8KzZPAAvqVJRO8NqdX090ThXCjKgTrPWD5JU4PbhuEnfTNGvJ-MR0JB8L5eTuSjhGBbLW6KTsCO1FE3uqAEDxgVlgF3PMGeWAyZMJyQPflNEb5fbpEEA5mXwPjmDWmErNztQL7kI58DvsiODeoH4atll-fxFvfZG7xOe3BS50-soNmP-nY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-md">
+<span class="font-label-caps text-label-caps uppercase text-secondary-container">THE ARCHIVE</span>
+<span class="font-headline-md text-headline-md text-on-primary">Master Craftsman Fitting Dossier</span>
+</div>
+</div>
+<!-- Live Atelier Quote -->
+<div class="bg-surface-container-low p-space-md flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">format_quote</span>
+</div>
+<p class="font-body-sm text-body-sm italic text-on-surface-variant">
+              “True elegance is not noticed, it is remembered. Every stitch at Oi Dulavai honors ancestral dignity.”
+            </p>
+</div>
+</div>
+<!-- Right Column: Registration Dossier Form (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-md md:p-space-xl shadow-lg flex flex-col gap-space-lg relative">
+<!-- Form Header Ledger -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-low p-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">badge</span>
+<span class="font-spec-code text-spec-code text-on-surface uppercase">PATRON DOSSIER REGISTRATION</span>
+</div>
+<span class="font-spec-code-sm text-spec-code-sm text-secondary bg-secondary/10 px-2 py-0.5 uppercase tracking-wider font-semibold">STATUS: PROVISIONAL</span>
+</div>
+<form class="flex flex-col gap-space-lg" id="patronRegistryForm" onsubmit="event.preventDefault(); return false;">
+<!-- SECTION 1: Personal Coordinates -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">01. SOVEREIGN IDENTITY</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">MANDATORY</span>
+</div>
+<!-- Honorific + Full Name -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-space-sm">
+<div class="sm:col-span-4 flex flex-col gap-space-xs">
+<label class="font-label-caps text-label-caps uppercase text-on-surface-variant">Honorific</label>
+<div class="relative bg-surface-container flex items-center px-space-sm py-2.5 transition-colors focus-within:bg-surface-container-high">
+<select class="w-full bg-transparent font-body-md text-body-md text-on-surface focus:outline-none appearance-none cursor-pointer pr-space-md" id="patronHonorific">
+<option selected="" value="Mr.">Mr. / জনাব</option>
+<option value="Ustad">Ustad / ওস্তাদ</option>
+<option value="Patron">Patron / সম্মানিত সদস্য</option>
+<option value="Dr.">Dr. / ডক্টর</option>
+<option value="Barrister">Barrister</option>
+</select>
+<span class="material-symbols-outlined text-secondary text-[18px] absolute right-space-sm pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="sm:col-span-8 flex flex-col gap-space-xs">
+<label class="font-label-caps text-label-caps uppercase text-on-surface-variant" for="fullName">Full Name in Script / English</label>
+<div class="bg-surface-container flex items-center px-space-sm py-2.5 transition-colors focus-within:bg-surface-container-high">
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none" id="fullName" placeholder="e.g. Navidul Haque Chowdhury" required="" type="text"/>
+</div>
+</div>
+</div>
+<!-- Phone with BD Flag & Zone Auto-detect -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-caps text-label-caps uppercase text-on-surface-variant" for="phoneInput">Primary Mobile (Concierge Dispatch)</label>
+<span class="font-spec-code-sm text-spec-code-sm text-secondary bg-secondary-container/20 px-2 py-0.5" id="detectedZone">AUTO-DETECT: GULSHAN / BANANI ZONE</span>
+</div>
+<div class="grid grid-cols-12 bg-surface-container items-center px-space-sm py-1.5 focus-within:bg-surface-container-high">
+<div class="col-span-4 sm:col-span-3 flex items-center gap-space-xs">
+<svg class="w-5 h-3.5 shrink-0" viewbox="0 0 20 12">
+<rect fill="#006a4e" height="12" width="20"></rect>
+<circle cx="9" cy="6" fill="#f42a41" r="4"></circle>
+</svg>
+<span class="font-spec-code text-spec-code text-on-surface font-semibold">+880</span>
+<span class="text-outline-variant">|</span>
+</div>
+<div class="col-span-8 sm:col-span-9">
+<input class="w-full bg-transparent font-spec-code text-spec-code text-on-surface placeholder:text-outline-variant focus:outline-none tracking-wider" id="phoneInput" maxlength="11" placeholder="1712 345 678" required="" type="tel"/>
+</div>
+</div>
+<p class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Used strictly for delivery coordination and WhatsApp fittings preview.</p>
+</div>
+<!-- Email Address -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-caps text-label-caps uppercase text-on-surface-variant" for="emailInput">Electronic Mail (Dispatch &amp; Receipts)</label>
+<div class="bg-surface-container flex items-center px-space-sm py-2.5 focus-within:bg-surface-container-high">
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none" id="emailInput" placeholder="patron@oidulavai.luxury" required="" type="email"/>
+<span class="material-symbols-outlined text-outline-variant text-[18px]">alternate_email</span>
+</div>
+</div>
+<!-- Passphrase with Sartorial Strength Indicator -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-caps text-label-caps uppercase text-on-surface-variant" for="passphrase">Atelier Passphrase</label>
+<span class="font-spec-code-sm text-spec-code-sm text-secondary font-medium" id="strengthLabel">SARTORIAL GRADE: READY</span>
+</div>
+<div class="bg-surface-container flex items-center px-space-sm py-2.5 focus-within:bg-surface-container-high">
+<input class="w-full bg-transparent font-spec-code text-spec-code text-on-surface placeholder:text-outline-variant focus:outline-none tracking-widest" id="passphrase" placeholder="Minimum 8 characters with bespoke symbols" required="" type="password"/>
+<button class="text-outline hover:text-secondary focus:outline-none" id="togglePass" type="button">
+<span class="material-symbols-outlined text-[18px]" id="eyeIcon">visibility</span>
+</button>
+</div>
+<!-- Strength Meter Bars -->
+<div class="grid grid-cols-4 gap-1.5 pt-1">
+<div class="h-1 bg-secondary transition-all" id="bar1"></div>
+<div class="h-1 bg-secondary transition-all" id="bar2"></div>
+<div class="h-1 bg-secondary transition-all" id="bar3"></div>
+<div class="h-1 bg-surface-container-high transition-all" id="bar4"></div>
+</div>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Passphrase must incorporate imperial security: uppercase, digit, glyph.</span>
+</div>
+</div>
+<!-- SECTION 2: Sartorial Fitting Preferences -->
+<div class="flex flex-col gap-space-md pt-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">02. SARTORIAL SILHOUETTE PREFERENCE</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">MULTI-SELECT</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs" id="silhouetteSelector">
+<!-- Option 1 -->
+<button class="silhouette-pill text-left p-space-sm bg-surface-container-high text-on-surface flex items-center justify-between transition-colors hover:bg-secondary-container/20" data-val="slim-panjabi" type="button">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold">Modern Slim Panjabi</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Tapered yoke, high armhole</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[18px] pill-check">check_circle</span>
+</button>
+<!-- Option 2 -->
+<button class="silhouette-pill text-left p-space-sm bg-surface-container text-on-surface flex items-center justify-between transition-colors hover:bg-secondary-container/20" data-val="classical-waskoti" type="button">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold">Regal Classical Waskoti</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Nehru collar, antique brass buttons</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[18px] pill-check">circle</span>
+</button>
+<!-- Option 3 -->
+<button class="silhouette-pill text-left p-space-sm bg-surface-container text-on-surface flex items-center justify-between transition-colors hover:bg-secondary-container/20" data-val="gurkha-pleated" type="button">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold">Gurkha Pleated Trousers</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Dual buckle side tabs, deep pleats</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[18px] pill-check">circle</span>
+</button>
+<!-- Option 4 -->
+<button class="silhouette-pill text-left p-space-sm bg-surface-container text-on-surface flex items-center justify-between transition-colors hover:bg-secondary-container/20" data-val="bespoke-sherwani" type="button">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold">Bespoke Wedding Sherwani</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Handspun zardozi, imperial padding</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[18px] pill-check">circle</span>
+</button>
+</div>
+</div>
+<!-- SECTION 3: Preferred Atelier Lounge -->
+<div class="flex flex-col gap-space-md pt-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">03. PREFERRED ATELIER LOUNGE</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">SALON APPOINTMENTS</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-xs" id="loungeSelector">
+<!-- Lounge 1 -->
+<label class="cursor-pointer bg-surface-container-high p-space-sm flex flex-col gap-1 transition-all lounge-box">
+<input checked="" class="sr-only" name="lounge" type="radio" value="banani"/>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Banani Rd 11</span>
+<span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>
+</div>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Flagship Salon</span>
+<span class="font-spec-code-sm text-spec-code-sm text-secondary pt-1">Open 11am - 9pm</span>
+</label>
+<!-- Lounge 2 -->
+<label class="cursor-pointer bg-surface-container p-space-sm flex flex-col gap-1 transition-all lounge-box">
+<input class="sr-only" name="lounge" type="radio" value="gulshan"/>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Gulshan 2 VIP</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">domain</span>
+</div>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Private Manor Suite</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant pt-1">Appointment Only</span>
+</label>
+<!-- Lounge 3 -->
+<label class="cursor-pointer bg-surface-container p-space-sm flex flex-col gap-1 transition-all lounge-box">
+<input class="sr-only" name="lounge" type="radio" value="sylhet"/>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Sylhet Suite</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">villa</span>
+</div>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Artisanal Outpost</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant pt-1">Tea Valley Pavilion</span>
+</label>
+</div>
+</div>
+<!-- SECTION 4: Concierge Protocols (Checkboxes) -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Checkbox 1 -->
+<label class="flex items-start gap-space-sm cursor-pointer p-space-sm bg-surface-container-low transition-colors hover:bg-surface-container">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Enroll in Complimentary Doorstep 2-Size Trial Protocol</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Our courier holds both size increments while you fit in comfort; return the alternate instantly.</span>
+</div>
+</label>
+<!-- Checkbox 2 -->
+<label class="flex items-start gap-space-sm cursor-pointer p-space-sm bg-surface-container-low transition-colors hover:bg-surface-container">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Receive seasonal trunk show monographs via WhatsApp</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">High-res textile scans, private pre-orders before Eid and winter wedding collections.</span>
+</div>
+</label>
+</div>
+<!-- PRIVILEGE REWARD BANNER -->
+<div class="bg-secondary-container/30 p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">redeem</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">৳ 2,000 WELCOME GRANT STAGED</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Credited to wallet upon signature completion</span>
+</div>
+</div>
+<span class="font-spec-code text-spec-code text-secondary font-bold">READY</span>
+</div>
+<!-- PRIMARY SUBMIT CTA -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<button class="w-full bg-primary hover:bg-secondary text-on-primary py-4 px-space-lg transition-colors flex items-center justify-center gap-space-sm shadow-md group" id="submitBtn" type="submit">
+<span class="font-label-caps text-label-caps tracking-widest text-on-primary uppercase font-bold text-center">
+                  CREATE PATRON ACCOUNT &amp; UNLOCK ৳ 2,000 WELCOME PRIVILEGE
+                </span>
+<span class="material-symbols-outlined text-on-primary text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+<!-- Footnote -->
+<div class="flex items-center justify-center gap-space-xs pt-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Already a Patron of the Atelier?</span>
+<a class="font-label-caps text-label-caps text-secondary uppercase font-bold underline underline-offset-4 hover:text-primary transition-colors" href="#">Sign In</a>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- Trust Bar & Dhaka Concierge Assurance -->
+<div class="mt-space-xl pt-space-lg grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<div class="flex items-center gap-space-sm p-space-sm bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[22px]">lock</span>
+<div class="flex flex-col">
+<span class="font-spec-code-sm text-spec-code-sm font-bold uppercase text-on-surface">End-to-End Cryptography</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Encrypted Patron Logs</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-sm bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[22px]">all_inclusive</span>
+<div class="flex flex-col">
+<span class="font-spec-code-sm text-spec-code-sm font-bold uppercase text-on-surface">Lifetime Hem Refits</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Complimentary Alteration</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-sm bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[22px]">local_shipping</span>
+<div class="flex flex-col">
+<span class="font-spec-code-sm text-spec-code-sm font-bold uppercase text-on-surface">Dhaka Metropolitan 3H</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">White Glove Dispatch</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-sm bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[22px]">support_agent</span>
+<div class="flex flex-col">
+<span class="font-spec-code-sm text-spec-code-sm font-bold uppercase text-on-surface">Dedicated Munshi</span>
+<span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">Personal Sartorial Guide</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    (function initPatronFormInteractions() {
+      // Toggle Password Visibility
+      const toggleBtn = document.getElementById('togglePass');
+      const passInput = document.getElementById('passphrase');
+      const eyeIcon = document.getElementById('eyeIcon');
+
+      if (toggleBtn && passInput) {
+        toggleBtn.addEventListener('click', () => {
+          if (passInput.type === 'password') {
+            passInput.type = 'text';
+            eyeIcon.textContent = 'visibility_off';
+          } else {
+            passInput.type = 'password';
+            eyeIcon.textContent = 'visibility';
+          }
+        });
+      }
+
+      // Dynamic Passphrase Strength Meter
+      if (passInput) {
+        passInput.addEventListener('input', (e) => {
+          const val = e.target.value;
+          const strengthLabel = document.getElementById('strengthLabel');
+          const bar1 = document.getElementById('bar1');
+          const bar2 = document.getElementById('bar2');
+          const bar3 = document.getElementById('bar3');
+          const bar4 = document.getElementById('bar4');
+
+          if (!val) {
+            strengthLabel.textContent = 'SARTORIAL GRADE: READY';
+            bar1.className = 'h-1 bg-secondary transition-all';
+            bar2.className = 'h-1 bg-secondary transition-all';
+            bar3.className = 'h-1 bg-secondary transition-all';
+            bar4.className = 'h-1 bg-surface-container-high transition-all';
+            return;
+          }
+
+          let score = 0;
+          if (val.length >= 8) score++;
+          if (/[A-Z]/.test(val)) score++;
+          if (/[0-9]/.test(val)) score++;
+          if (/[^A-Za-z0-9]/.test(val)) score++;
+
+          const labels = ['INITIAL WEAVE', 'TUSSAR GRADE', 'ZARDOZI STRONG', 'IMPERIAL PROTOCOL'];
+          strengthLabel.textContent = 'SARTORIAL GRADE: ' + (labels[score - 1] || 'WEAK');
+
+          [bar1, bar2, bar3, bar4].forEach((bar, idx) => {
+            if (idx < score) {
+              bar.className = 'h-1 bg-secondary transition-all';
+            } else {
+              bar.className = 'h-1 bg-surface-container-high transition-all';
+            }
+          });
+        });
+      }
+
+      // Phone Input Zone Detection Simulation
+      const phoneInput = document.getElementById('phoneInput');
+      const detectedZone = document.getElementById('detectedZone');
+      if (phoneInput && detectedZone) {
+        phoneInput.addEventListener('input', (e) => {
+          const val = e.target.value.replace(/\D/g, '');
+          if (val.startsWith('17') || val.startsWith('017')) {
+            detectedZone.textContent = 'AUTO-DETECT: GULSHAN / BANANI ZONE';
+          } else if (val.startsWith('18') || val.startsWith('018')) {
+            detectedZone.textContent = 'AUTO-DETECT: CHITTAGONG / SYLHET ROUTE';
+          } else if (val.startsWith('19') || val.startsWith('019')) {
+            detectedZone.textContent = 'AUTO-DETECT: UTTARA / DHANMONDI SECTOR';
+          } else {
+            detectedZone.textContent = 'AUTO-DETECT: GREATER DHAKA METRO';
+          }
+        });
+      }
+
+      // Silhouette Multi-Pill Selection Toggle
+      const pills = document.querySelectorAll('.silhouette-pill');
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const checkIcon = pill.querySelector('.pill-check');
+          const isSelected = pill.classList.contains('bg-surface-container-high');
+          
+          if (isSelected) {
+            pill.classList.remove('bg-surface-container-high');
+            pill.classList.add('bg-surface-container');
+            if (checkIcon) {
+              checkIcon.textContent = 'circle';
+              checkIcon.className = 'material-symbols-outlined text-outline-variant text-[18px] pill-check';
+            }
+          } else {
+            pill.classList.remove('bg-surface-container');
+            pill.classList.add('bg-surface-container-high');
+            if (checkIcon) {
+              checkIcon.textContent = 'check_circle';
+              checkIcon.className = 'material-symbols-outlined text-secondary text-[18px] pill-check';
+            }
+          }
+        });
+      });
+
+      // Atelier Lounge Selection Visual Sync
+      const loungeRadios = document.querySelectorAll('input[name="lounge"]');
+      const loungeBoxes = document.querySelectorAll('.lounge-box');
+
+      loungeRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+          loungeBoxes.forEach(box => {
+            box.classList.remove('bg-surface-container-high');
+            box.classList.add('bg-surface-container');
+            const icon = box.querySelector('.material-symbols-outlined');
+            if (icon) {
+              icon.classList.remove('text-secondary');
+              icon.classList.add('text-outline-variant');
+            }
+          });
+
+          const activeBox = radio.closest('.lounge-box');
+          if (activeBox) {
+            activeBox.classList.remove('bg-surface-container');
+            activeBox.classList.add('bg-surface-container-high');
+            const icon = activeBox.querySelector('.material-symbols-outlined');
+            if (icon) {
+              icon.classList.remove('text-outline-variant');
+              icon.classList.add('text-secondary');
+            }
+          }
+        });
+      });
+
+      // Submit feedback simulation
+      const form = document.getElementById('patronRegistryForm');
+      const submitBtn = document.getElementById('submitBtn');
+      if (form && submitBtn) {
+        form.addEventListener('submit', () => {
+          submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px] text-on-primary">sync</span><span class="font-label-caps text-label-caps text-on-primary uppercase">ISSUING PATRON PRIVILEGES...</span>';
+          setTimeout(() => {
+            submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] text-on-primary">verified</span><span class="font-label-caps text-label-caps text-on-primary uppercase">WELCOME PATRON · ৳ 2,000 ACTIVE</span>';
+            submitBtn.classList.remove('bg-primary');
+            submitBtn.classList.add('bg-secondary');
+          }, 1200);
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low py-space-xl shadow-[0_-1px_6px_rgba(0,0,0,0.02)]"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-col text-center md:text-left"><span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface">Oi Dulavai Atelier de Couture</span><span class="font-spec-code-sm text-spec-code-sm text-on-surface-variant mt-space-xs">Heritage Zardozi · Bespoke Sherwanis · Handspun Muslin &amp; Silk</span></div><div class="flex items-center gap-space-lg"><a class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Bespoke Protocol</a><a class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Heritage Archive</a><a class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Salon Concierge</a></div><div class="font-spec-code-sm text-spec-code-sm text-on-surface-variant">© 2025 OI DULAVAI. ALL RIGHTS RESERVED.</div></div></footer></body></html>
