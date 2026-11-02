@@ -104,7 +104,8 @@ export default function CartPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
             {/* Left Items Table (8 Cols) */}
             <div className="lg:col-span-8 bg-surface-container-lowest border border-outline-variant/60 shadow-sm divide-y divide-outline-variant/30">
-              <div className="p-space-md bg-surface-container-low font-spec-code-sm text-spec-code-sm uppercase tracking-wider text-on-surface-variant grid grid-cols-12 gap-2">
+              {/* Desktop Table Header */}
+              <div className="hidden sm:grid p-space-md bg-surface-container-low font-spec-code-sm text-spec-code-sm uppercase tracking-wider text-on-surface-variant grid-cols-12 gap-2">
                 <span className="col-span-6">Garment Details</span>
                 <span className="col-span-2 text-center">Size</span>
                 <span className="col-span-2 text-center">Quantity</span>
@@ -112,54 +113,68 @@ export default function CartPage() {
               </div>
 
               {cart.map((item) => (
-                <div key={item.sku} className="p-space-md grid grid-cols-12 gap-2 items-center">
-                  <div className="col-span-6 flex gap-space-sm items-center">
+                <div
+                  key={item.sku}
+                  className="p-4 sm:p-space-md flex flex-col sm:grid sm:grid-cols-12 gap-3 sm:gap-2 sm:items-center"
+                >
+                  <div className="sm:col-span-6 flex gap-3 items-center">
                     <img
                       src={item.image}
                       alt={item.title}
                       className="w-16 h-20 object-cover bg-surface-container shrink-0 border border-outline-variant/40"
                     />
-                    <div>
-                      <h4 className="font-label-caps text-label-caps uppercase font-bold text-on-surface">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-label-caps text-label-caps uppercase font-bold text-on-surface truncate">
                         {item.title}
                       </h4>
-                      <p className="font-spec-code-sm text-spec-code-sm text-on-surface-variant">
+                      <p className="font-spec-code-sm text-spec-code-sm text-on-surface-variant truncate">
                         {item.textileSpec || 'Bespoke Atelier Finish'}
                       </p>
+                      <div className="sm:hidden flex items-center gap-2 mt-1">
+                        <span className="font-spec-code-sm text-xs bg-surface-container px-2 py-0.5 border">
+                          Size {item.size}
+                        </span>
+                      </div>
                       <button
                         onClick={() => removeFromCart(item.sku)}
-                        className="text-error font-spec-code-sm text-[11px] hover:underline mt-1 flex items-center gap-1"
+                        className="text-error font-spec-code-sm text-[11px] hover:underline mt-1.5 flex items-center gap-1 min-h-[32px]"
                       >
-                        <Trash2 className="w-3 h-3" />
+                        <Trash2 className="w-3.5 h-3.5" />
                         <span>Remove Piece</span>
                       </button>
                     </div>
                   </div>
 
-                  <div className="col-span-2 text-center font-spec-code font-bold">
+                  <div className="hidden sm:block sm:col-span-2 text-center font-spec-code font-bold">
                     {item.size}
                   </div>
 
-                  <div className="col-span-2 flex justify-center">
+                  <div className="flex items-center justify-between sm:justify-center sm:col-span-2 border-t sm:border-t-0 pt-2 sm:pt-0">
+                    <span className="sm:hidden font-spec-code-sm text-xs text-on-surface-variant uppercase">
+                      Quantity:
+                    </span>
                     <div className="flex items-center border border-outline-variant/60 bg-surface">
                       <button
                         onClick={() => updateQuantity(item.sku, -1)}
-                        className="px-2 py-1 hover:bg-surface-container-high transition-colors text-sm"
+                        className="w-8 h-8 flex items-center justify-center hover:bg-surface-container-high transition-colors text-sm font-bold min-h-[36px] min-w-[36px]"
+                        aria-label="Decrease quantity"
                       >
                         -
                       </button>
-                      <span className="px-2 font-spec-code font-bold text-xs">{item.quantity}</span>
+                      <span className="w-8 text-center font-spec-code font-bold text-xs">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.sku, 1)}
-                        className="px-2 py-1 hover:bg-surface-container-high transition-colors text-sm"
+                        className="w-8 h-8 flex items-center justify-center hover:bg-surface-container-high transition-colors text-sm font-bold min-h-[36px] min-w-[36px]"
+                        aria-label="Increase quantity"
                       >
                         +
                       </button>
                     </div>
                   </div>
 
-                  <div className="col-span-2 text-right font-spec-code font-bold text-on-surface">
-                    {formatPrice(item.price * item.quantity, currency)}
+                  <div className="flex items-center justify-between sm:justify-end sm:col-span-2 font-spec-code font-bold text-on-surface border-t sm:border-t-0 pt-1 sm:pt-0">
+                    <span className="sm:hidden text-xs text-on-surface-variant uppercase">Subtotal:</span>
+                    <span>{formatPrice(item.price * item.quantity, currency)}</span>
                   </div>
                 </div>
               ))}

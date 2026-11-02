@@ -152,7 +152,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
                 ))}
               </div>
 
-              {/* Main Image Showcase with Interactive Focal Hotspots */}
+              {/* Main Image Showcase */}
               <div className="relative flex-1 aspect-[4/5] bg-surface-container overflow-hidden border border-outline-variant/60 shadow-xl group">
                 <img
                   src={currentImage}
@@ -170,7 +170,12 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
                   </span>
                 </div>
 
-                {/* Wishlist Button */}
+                {/* Image Index Counter on Mobile */}
+                <div className="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 font-spec-code-sm text-[10px] text-on-surface shadow-sm border border-outline-variant/40">
+                  {activeImageIndex + 1} / {product.images.length}
+                </div>
+
+                {/* Wishlist Button with 44x44px Touch Target */}
                 <button
                   onClick={() =>
                     toggleWishlist({
@@ -185,7 +190,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
                     })
                   }
                   aria-label="Save to Vault"
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary shadow-lg transition-transform hover:scale-110"
+                  className="absolute top-3 right-3 min-w-[44px] min-h-[44px] rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary shadow-lg transition-transform hover:scale-110 z-10"
                 >
                   <Heart
                     className={`w-5 h-5 ${
@@ -194,6 +199,22 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
                   />
                 </button>
               </div>
+            </div>
+
+            {/* Mobile Image Dot Pagination */}
+            <div className="flex md:hidden items-center justify-center gap-1.5 pt-1">
+              {product.images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveImageIndex(idx)}
+                  aria-label={`View Image ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all min-h-[20px] min-w-[20px] flex items-center justify-center ${
+                    activeImageIndex === idx ? 'w-6 bg-secondary' : 'w-2 bg-outline-variant'
+                  }`}
+                >
+                  <span className="sr-only">Image {idx + 1}</span>
+                </button>
+              ))}
             </div>
 
             {/* Bottom Micro Visual Spec Bar */}
@@ -227,7 +248,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
                 </span>
               </div>
 
-              <h1 className="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight leading-tight">
+              <h1 className="font-headline-lg text-2xl sm:text-3xl lg:text-headline-lg text-on-surface uppercase tracking-tight leading-tight">
                 {product.name}
               </h1>
 
@@ -332,7 +353,7 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
                       <button
                         key={size}
                         onClick={() => setSelectedSize(size)}
-                        className={`py-2.5 border text-center transition-all ${
+                        className={`min-h-[44px] flex items-center justify-center border text-center transition-all ${
                           selectedSize === size
                             ? 'bg-primary text-on-primary border-primary font-bold shadow-md'
                             : 'bg-surface hover:border-secondary border-outline-variant/60 text-on-surface'
@@ -497,6 +518,37 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
           </div>
         </div>
       </section>
+
+      {/* Mobile Sticky Add To Bag Bar (Fixed above mobile bottom nav) */}
+      <div className="lg:hidden fixed bottom-14 left-0 right-0 z-30 bg-surface/95 backdrop-blur-md border-t border-outline-variant/60 px-4 py-2.5 shadow-[0_-4px_16px_rgba(0,0,0,0.08)] flex items-center justify-between gap-3">
+        <div className="flex flex-col">
+          <span className="font-spec-code-sm text-[10px] uppercase text-on-surface-variant">
+            {sizingMode === 'rtw' ? `Size ${selectedSize} • RTW` : 'Custom Bespoke'}
+          </span>
+          <span className="font-headline-md text-base font-bold text-on-surface leading-tight">
+            {formatPrice(unitPrice, currency)}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={openSizeGuide}
+            className="p-2 border border-outline-variant text-on-surface hover:text-secondary min-h-[44px] min-w-[44px] flex items-center justify-center bg-surface"
+            aria-label="View Size Guide"
+          >
+            <Ruler className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={handleAddToBag}
+            className="bg-primary hover:bg-secondary text-on-primary px-4 py-2.5 font-label-caps text-xs uppercase tracking-widest font-bold flex items-center gap-1.5 shadow-lg min-h-[44px] transition-colors"
+          >
+            <ShoppingBag className="w-4 h-4" />
+            <span>Add To Bag</span>
+          </button>
+        </div>
+      </div>
 
       {/* Below the Fold: Bento Visual Story Grid */}
       <section className="w-full py-space-xl bg-surface-container-low border-t border-outline-variant/60">

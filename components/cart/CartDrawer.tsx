@@ -41,7 +41,7 @@ export function CartDrawer() {
           <button
             onClick={closeCart}
             aria-label="Close cart"
-            className="p-1 text-on-surface hover:text-secondary transition-colors"
+            className="p-2 text-on-surface hover:text-secondary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
           >
             <X className="w-5 h-5" />
           </button>

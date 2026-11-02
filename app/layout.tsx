@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import MobileBottomNav from '@/components/layout/MobileBottomNav';
 import CartDrawer from '@/components/cart/CartDrawer';
 import WishlistDrawer from '@/components/cart/WishlistDrawer';
 import Toast from '@/components/common/Toast';
@@ -23,10 +24,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-surface font-body-md text-on-surface antialiased min-h-screen selection:bg-secondary selection:text-on-secondary flex flex-col justify-between">
+      <body className="bg-surface font-body-md text-on-surface antialiased min-h-screen selection:bg-secondary selection:text-on-secondary flex flex-col justify-between overflow-x-hidden">
         <Header />
-        <main className="flex-1 w-full pt-20">{children}</main>
+        <main className="flex-1 w-full pt-20 pb-20 lg:pb-0 overflow-x-hidden">{children}</main>
         <Footer />
+        <MobileBottomNav />
 
         {/* Global Drawers & Overlays */}
         <CartDrawer />

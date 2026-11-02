@@ -39,7 +39,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
                 <span>•</span>
                 <span>Tranche 2025</span>
               </div>
-              <h1 className="font-headline-xl text-headline-xl text-on-surface uppercase tracking-tight">
+              <h1 className="font-headline-xl text-2xl sm:text-3xl md:text-headline-xl text-on-surface uppercase tracking-tight">
                 {category ? `${category} Collection` : 'The Imperial Menswear Archive'}
               </h1>
               <p className="font-body-md text-on-surface-variant max-w-xl">

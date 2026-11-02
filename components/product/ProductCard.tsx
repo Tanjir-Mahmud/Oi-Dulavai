@@ -85,11 +85,11 @@ export function ProductCard({ product }: ProductCardProps) {
           </span>
         </div>
 
-        {/* Wishlist Button */}
+        {/* Wishlist Button with 44x44px Touch Target */}
         <button
           onClick={handleWishlistToggle}
           aria-label="Add to Wishlist"
-          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary transition-colors shadow-sm"
+          className="absolute top-2 right-2 min-w-[44px] min-h-[44px] rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary transition-colors shadow-sm z-10"
         >
           <Heart
             className={`w-4 h-4 transition-colors ${
@@ -98,7 +98,7 @@ export function ProductCard({ product }: ProductCardProps) {
           />
         </button>
 
-        {/* Inline Size Selector Strip (Docked on hover) */}
+        {/* Inline Size Selector Strip (Docked on hover / tablet touch) */}
         <div className="absolute bottom-0 left-0 right-0 bg-primary/95 text-on-primary backdrop-blur-md p-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-between z-10">
           <div className="flex items-center gap-1 font-spec-code-sm text-spec-code-sm">
             {availableSizes.map((size) => (
@@ -110,7 +110,7 @@ export function ProductCard({ product }: ProductCardProps) {
                   e.stopPropagation();
                   setSelectedSize(size);
                 }}
-                className={`px-2 py-1 transition-colors ${
+                className={`px-2 py-1.5 transition-colors min-w-[28px] text-center ${
                   selectedSize === size
                     ? 'bg-secondary text-on-secondary font-bold'
                     : 'bg-surface-container-high/30 hover:bg-secondary text-on-primary'
@@ -124,7 +124,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <button
             onClick={handleQuickAdd}
             type="button"
-            className="bg-secondary text-on-secondary font-label-caps text-label-caps uppercase px-3 py-1 hover:bg-surface hover:text-primary transition-colors tracking-widest font-bold flex items-center gap-1"
+            className="bg-secondary text-on-secondary font-label-caps text-label-caps uppercase px-3 py-1.5 hover:bg-surface hover:text-primary transition-colors tracking-widest font-bold flex items-center gap-1 min-h-[32px]"
           >
             <span>Add</span>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -143,7 +143,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <span className="text-secondary font-semibold">In Vault (Ready)</span>
           </div>
           <Link href={`/product/${product.slug}`}>
-            <h3 className="font-headline-md text-headline-md text-on-surface mt-1 group-hover:text-secondary transition-colors line-clamp-1">
+            <h3 className="font-headline-md text-[17px] sm:text-headline-md text-on-surface mt-1 group-hover:text-secondary transition-colors line-clamp-1">
               {product.name}
             </h3>
           </Link>
@@ -155,7 +155,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </span>
           <button
             onClick={handleQuickAdd}
-            className="font-label-caps text-label-caps uppercase tracking-wider text-primary hover:text-secondary underline transition-colors flex items-center gap-1"
+            className="font-label-caps text-label-caps uppercase tracking-wider text-primary hover:text-secondary underline transition-colors flex items-center gap-1 min-h-[44px] py-1"
           >
             <Zap className="w-3 h-3 text-secondary" />
             <span>Instant Reserve</span>

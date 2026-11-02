@@ -205,14 +205,14 @@ export default function PatronAccountClient({ initialPatron }: PatronProps) {
 
         {/* Primary Working Deck: Sidebar + Dynamic Panels */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
-          {/* Desktop Navigation Ledger (Sidebar 4 Cols) */}
-          <div className="lg:col-span-4 bg-surface-container-lowest border border-outline-variant/60 shadow-sm p-space-md space-y-1 font-label-caps text-label-caps uppercase tracking-wider">
+          {/* Navigation Ledger (Horizontal Swipe on Mobile, Sticky Sidebar on Desktop) */}
+          <div className="lg:col-span-4 bg-surface-container-lowest border border-outline-variant/60 shadow-sm p-2 sm:p-space-md flex overflow-x-auto no-scrollbar lg:flex-col gap-1.5 font-label-caps text-label-caps uppercase tracking-wider">
             <button
               onClick={() => setActiveTab('orders')}
-              className={`w-full text-left p-3 flex items-center justify-between transition-colors ${
+              className={`text-left p-3 flex items-center justify-between transition-colors min-h-[44px] shrink-0 lg:shrink whitespace-nowrap gap-3 ${
                 activeTab === 'orders'
                   ? 'bg-primary text-on-primary font-bold shadow-sm'
-                  : 'text-on-surface hover:bg-surface-container-low'
+                  : 'text-on-surface hover:bg-surface-container-low border border-outline-variant/40 lg:border-none'
               }`}
             >
               <span className="flex items-center gap-2.5">
@@ -224,10 +224,10 @@ export default function PatronAccountClient({ initialPatron }: PatronProps) {
 
             <button
               onClick={() => setActiveTab('measurements')}
-              className={`w-full text-left p-3 flex items-center justify-between transition-colors ${
+              className={`text-left p-3 flex items-center justify-between transition-colors min-h-[44px] shrink-0 lg:shrink whitespace-nowrap gap-3 ${
                 activeTab === 'measurements'
                   ? 'bg-primary text-on-primary font-bold shadow-sm'
-                  : 'text-on-surface hover:bg-surface-container-low'
+                  : 'text-on-surface hover:bg-surface-container-low border border-outline-variant/40 lg:border-none'
               }`}
             >
               <span className="flex items-center gap-2.5">
@@ -239,10 +239,10 @@ export default function PatronAccountClient({ initialPatron }: PatronProps) {
 
             <button
               onClick={() => setActiveTab('addresses')}
-              className={`w-full text-left p-3 flex items-center justify-between transition-colors ${
+              className={`text-left p-3 flex items-center justify-between transition-colors min-h-[44px] shrink-0 lg:shrink whitespace-nowrap gap-3 ${
                 activeTab === 'addresses'
                   ? 'bg-primary text-on-primary font-bold shadow-sm'
-                  : 'text-on-surface hover:bg-surface-container-low'
+                  : 'text-on-surface hover:bg-surface-container-low border border-outline-variant/40 lg:border-none'
               }`}
             >
               <span className="flex items-center gap-2.5">
@@ -254,10 +254,10 @@ export default function PatronAccountClient({ initialPatron }: PatronProps) {
 
             <button
               onClick={() => setActiveTab('lounge')}
-              className={`w-full text-left p-3 flex items-center justify-between transition-colors ${
+              className={`text-left p-3 flex items-center justify-between transition-colors min-h-[44px] shrink-0 lg:shrink whitespace-nowrap gap-3 ${
                 activeTab === 'lounge'
                   ? 'bg-primary text-on-primary font-bold shadow-sm'
-                  : 'text-on-surface hover:bg-surface-container-low'
+                  : 'text-on-surface hover:bg-surface-container-low border border-outline-variant/40 lg:border-none'
               }`}
             >
               <span className="flex items-center gap-2.5">
@@ -269,10 +269,10 @@ export default function PatronAccountClient({ initialPatron }: PatronProps) {
 
             <button
               onClick={() => setActiveTab('loyalty')}
-              className={`w-full text-left p-3 flex items-center justify-between transition-colors ${
+              className={`text-left p-3 flex items-center justify-between transition-colors min-h-[44px] shrink-0 lg:shrink whitespace-nowrap gap-3 ${
                 activeTab === 'loyalty'
                   ? 'bg-primary text-on-primary font-bold shadow-sm'
-                  : 'text-on-surface hover:bg-surface-container-low'
+                  : 'text-on-surface hover:bg-surface-container-low border border-outline-variant/40 lg:border-none'
               }`}
             >
               <span className="flex items-center gap-2.5">
@@ -284,10 +284,10 @@ export default function PatronAccountClient({ initialPatron }: PatronProps) {
 
             <button
               onClick={() => setActiveTab('regional')}
-              className={`w-full text-left p-3 flex items-center justify-between transition-colors ${
+              className={`text-left p-3 flex items-center justify-between transition-colors min-h-[44px] shrink-0 lg:shrink whitespace-nowrap gap-3 ${
                 activeTab === 'regional'
                   ? 'bg-primary text-on-primary font-bold shadow-sm'
-                  : 'text-on-surface hover:bg-surface-container-low'
+                  : 'text-on-surface hover:bg-surface-container-low border border-outline-variant/40 lg:border-none'
               }`}
             >
               <span className="flex items-center gap-2.5">

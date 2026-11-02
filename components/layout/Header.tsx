@@ -31,10 +31,23 @@ export function Header() {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCollectionsAccordionOpen, setIsCollectionsAccordionOpen] = useState(false);
   const [isPrefsOpen, setIsPrefsOpen] = useState(false);
   const [isAccountOpen, setIsAccountOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [quickTrackCode, setQuickTrackCode] = useState('');
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   // Patron Auth State
   const [patron, setPatron] = useState<{
@@ -98,7 +111,7 @@ export function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Open Mobile Navigation"
-            className="xl:hidden p-space-xs text-on-surface hover:text-secondary transition-colors"
+            className="xl:hidden p-2 text-on-surface hover:text-secondary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -114,7 +127,7 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav with Luxury Mega-Menu */}
           <nav className="hidden xl:flex items-center gap-space-md 2xl:gap-space-lg font-label-caps text-label-caps tracking-widest">
             <Link
               href="/"
@@ -123,51 +136,104 @@ export function Header() {
               Home
             </Link>
 
-            <div className="relative group py-1">
+            <div className="relative group py-2">
               <Link
                 href="/collections"
-                className="text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1 cursor-pointer"
+                className="text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1 cursor-pointer py-1"
               >
                 <span>Collections</span>
                 <ChevronDown className="w-3.5 h-3.5 text-outline group-hover:text-primary transition-transform group-hover:rotate-180" />
               </Link>
-              <div className="absolute left-0 top-full hidden group-hover:flex flex-col bg-surface-container-lowest border border-outline-variant shadow-lg py-space-xs min-w-[200px] z-50">
-                <Link
-                  href="/collections?category=Panjabi"
-                  className="px-space-md py-space-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors"
-                >
-                  Panjabi
-                </Link>
-                <Link
-                  href="/collections?category=Waskoti"
-                  className="px-space-md py-space-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors"
-                >
-                  Waskoti & Vests
-                </Link>
-                <Link
-                  href="/collections?category=Sherwani"
-                  className="px-space-md py-space-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors"
-                >
-                  Royal Sherwani
-                </Link>
-                <Link
-                  href="/collections?category=Trousers"
-                  className="px-space-md py-space-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors"
-                >
-                  Bengal Gurkha Pants
-                </Link>
-                <Link
-                  href="/collections?category=Shirt"
-                  className="px-space-md py-space-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors"
-                >
-                  Irish Linen Shirts
-                </Link>
-                <Link
-                  href="/collections"
-                  className="px-space-md py-space-xs text-secondary font-bold hover:bg-surface-container-low transition-colors border-t border-outline-variant/30 mt-1"
-                >
-                  View Complete Catalog →
-                </Link>
+
+              {/* Luxury Mega Menu Preview Panel */}
+              <div className="absolute left-0 top-full hidden group-hover:grid grid-cols-12 gap-6 bg-surface-container-lowest border border-outline-variant shadow-2xl p-6 min-w-[760px] z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                {/* Categories Column */}
+                <div className="col-span-5 space-y-3 border-r border-outline-variant/40 pr-6">
+                  <span className="font-spec-code-sm text-[10px] uppercase tracking-widest text-secondary font-bold">
+                    Heirloom Categories
+                  </span>
+                  <div className="space-y-1 font-headline-md text-[15px]">
+                    <Link
+                      href="/collections?category=Panjabi"
+                      className="flex items-center justify-between py-1.5 text-on-surface hover:text-secondary hover:translate-x-1 transition-all"
+                    >
+                      <span>Rajshahi Silk Panjabi</span>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-60" />
+                    </Link>
+                    <Link
+                      href="/collections?category=Waskoti"
+                      className="flex items-center justify-between py-1.5 text-on-surface hover:text-secondary hover:translate-x-1 transition-all"
+                    >
+                      <span>Embroidered Waskoti</span>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-60" />
+                    </Link>
+                    <Link
+                      href="/collections?category=Sherwani"
+                      className="flex items-center justify-between py-1.5 text-on-surface hover:text-secondary hover:translate-x-1 transition-all"
+                    >
+                      <span>Royal Sherwani</span>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-60" />
+                    </Link>
+                    <Link
+                      href="/collections?category=Trousers"
+                      className="flex items-center justify-between py-1.5 text-on-surface hover:text-secondary hover:translate-x-1 transition-all"
+                    >
+                      <span>Bengal Gurkha Pants</span>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-60" />
+                    </Link>
+                    <Link
+                      href="/collections?category=Shirt"
+                      className="flex items-center justify-between py-1.5 text-on-surface hover:text-secondary hover:translate-x-1 transition-all"
+                    >
+                      <span>Irish Linen Shirts</span>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-60" />
+                    </Link>
+                  </div>
+                  <div className="pt-2 border-t border-outline-variant/40">
+                    <Link
+                      href="/collections"
+                      className="font-label-caps text-label-caps uppercase text-secondary font-bold hover:underline flex items-center gap-1.5"
+                    >
+                      <span>View All 2025 Archive</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Visual Category Previews (7 Cols) */}
+                <div className="col-span-7 grid grid-cols-2 gap-4">
+                  <Link
+                    href="/product/nawab-tussar-silk-panjabi"
+                    className="group/card relative aspect-[3/4] bg-surface-container overflow-hidden border border-outline-variant/60 shadow-md block"
+                  >
+                    <img
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEnQQ4L4jNhDhpiN7lnGHvJ59BP64v4tDnVVc2nJqJ7tbt4B81IjiMQ_WFUz1eaGn0b-gXIPXHF16EHVqQXFu82Q7bSiLL9vKP7fbNPXCyIflCUFF1zlci55SvTe-sBMvf5L8VRIkxnNN9xegd3Yd-mYnPomA3FeSnThVy9nuKT6ewqP0toycyAS-dak0IGpht8gObJEMUpBHch6z-h1ktHKmXN1tJFKikvPkTpnc"
+                      alt="Nawab Tussar Silk"
+                      className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-3 flex flex-col justify-end text-on-primary">
+                      <span className="font-spec-code-sm text-[9px] uppercase tracking-wider text-secondary-fixed-dim">Featured Vault</span>
+                      <span className="font-headline-md text-xs uppercase font-bold truncate">Nawab Silk Panjabi</span>
+                      <span className="font-spec-code text-xs text-surface-variant">৳ 16,800</span>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/collections?category=Waskoti"
+                    className="group/card relative aspect-[3/4] bg-surface-container overflow-hidden border border-outline-variant/60 shadow-md block"
+                  >
+                    <img
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMsZ4g9R_ZqQJ7_yFj5h6aR9yS1yWd0wX5bE1tP9qL8kZ4uC3vN7mI2oP6rT0yE4wX9bV2kL1jH8gM5fS3dA7cN9pQ0tZ6yW4vB1uN7kX2mO9jR6eS8cT5"
+                      alt="Shahi Velvet Waskoti"
+                      className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-3 flex flex-col justify-end text-on-primary">
+                      <span className="font-spec-code-sm text-[9px] uppercase tracking-wider text-secondary-fixed-dim">Royal Waistcoat</span>
+                      <span className="font-headline-md text-xs uppercase font-bold truncate">Shahi Velvet Waskoti</span>
+                      <span className="font-spec-code text-xs text-surface-variant">৳ 21,500</span>
+                    </div>
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -489,58 +555,231 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Full Slide-Over Drawer Navigation */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden bg-surface-container-lowest border-b border-outline-variant p-4 space-y-4 animate-in slide-in-from-top duration-200">
-          <form onSubmit={handleSearchSubmit} className="flex">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search garments..."
-              className="w-full bg-surface-container-low border border-outline-variant/60 px-3 py-2 text-on-surface font-body-sm"
-            />
-            <button type="submit" className="bg-primary text-on-primary px-4">
-              <Search className="w-4 h-4" />
-            </button>
-          </form>
+        <div className="xl:hidden fixed inset-0 z-50 overflow-hidden">
+          {/* Backdrop Blur */}
+          <div
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+            aria-hidden="true"
+          />
 
-          <div className="space-y-2 font-label-caps text-label-caps tracking-widest uppercase">
-            <Link
-              href="/"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block py-2 text-on-surface border-b border-outline-variant/30 font-bold"
-            >
-              Home
-            </Link>
-            <Link
-              href="/collections"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block py-2 text-on-surface border-b border-outline-variant/30"
-            >
-              All Collections
-            </Link>
-            <Link
-              href="/about"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block py-2 text-on-surface border-b border-outline-variant/30"
-            >
-              About the Atelier
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block py-2 text-on-surface border-b border-outline-variant/30"
-            >
-              Bespoke Concierge & Lounge
-            </Link>
-            <Link
-              href="/tracking/OD-DHAKA-8492"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block py-2 text-secondary font-bold"
-            >
-              Live Order Telemetry
-            </Link>
+          {/* Sliding Panel */}
+          <div className="fixed inset-y-0 left-0 max-w-full flex">
+            <div className="w-[85vw] max-w-sm bg-surface shadow-2xl flex flex-col justify-between overflow-y-auto animate-in slide-in-from-left duration-300 border-r border-outline-variant/60">
+              <div className="p-space-md space-y-space-md">
+                {/* Header inside drawer */}
+                <div className="flex items-center justify-between border-b border-outline-variant/40 pb-space-sm">
+                  <div>
+                    <span className="font-headline-md text-headline-md uppercase font-bold text-on-surface">
+                      Oi Dulavai
+                    </span>
+                    <span className="font-spec-code-sm text-[10px] tracking-widest text-secondary block uppercase">
+                      ঐ দুলাভাই • Private Client Atelier
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    aria-label="Close Mobile Navigation"
+                    className="p-2 text-on-surface-variant hover:text-secondary min-h-[44px] min-w-[44px] flex items-center justify-center"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+
+                {/* Mobile Search Form */}
+                <form onSubmit={handleSearchSubmit} className="flex">
+                  <div className="flex items-center bg-surface-container-low border border-outline-variant/60 w-full px-3 py-2">
+                    <Search className="w-4 h-4 text-outline mr-2 shrink-0" />
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search silk, sherwani, linen..."
+                      className="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="bg-primary text-on-primary px-4 font-label-caps text-xs uppercase font-bold min-h-[44px]"
+                  >
+                    Go
+                  </button>
+                </form>
+
+                {/* Primary Nav Links & Collapsible Accordion */}
+                <div className="space-y-1 font-label-caps text-label-caps tracking-widest uppercase">
+                  <Link
+                    href="/"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-between py-3 px-2 text-on-surface border-b border-outline-variant/30 font-bold min-h-[44px]"
+                  >
+                    <span>Atelier Home</span>
+                    <ArrowRight className="w-4 h-4 text-outline" />
+                  </Link>
+
+                  {/* Collections Accordion */}
+                  <div className="border-b border-outline-variant/30">
+                    <button
+                      type="button"
+                      onClick={() => setIsCollectionsAccordionOpen(!isCollectionsAccordionOpen)}
+                      className="w-full flex items-center justify-between py-3 px-2 text-on-surface font-bold min-h-[44px]"
+                    >
+                      <span>Heirloom Collections</span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-outline transition-transform duration-200 ${
+                          isCollectionsAccordionOpen ? 'rotate-180 text-secondary' : ''
+                        }`}
+                      />
+                    </button>
+
+                    {isCollectionsAccordionOpen && (
+                      <div className="bg-surface-container-low/60 px-3 py-2 space-y-1 font-body-sm text-body-sm normal-case border-t border-outline-variant/20 animate-in fade-in">
+                        <Link
+                          href="/collections?category=Panjabi"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex items-center justify-between py-2 text-on-surface-variant hover:text-secondary min-h-[44px]"
+                        >
+                          <span>Rajshahi Silk Panjabi</span>
+                          <span className="font-spec-code-sm text-[10px] text-secondary">View</span>
+                        </Link>
+                        <Link
+                          href="/collections?category=Waskoti"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex items-center justify-between py-2 text-on-surface-variant hover:text-secondary min-h-[44px]"
+                        >
+                          <span>Embroidered Waskoti & Vests</span>
+                          <span className="font-spec-code-sm text-[10px] text-secondary">View</span>
+                        </Link>
+                        <Link
+                          href="/collections?category=Sherwani"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex items-center justify-between py-2 text-on-surface-variant hover:text-secondary min-h-[44px]"
+                        >
+                          <span>Royal Ceremonial Sherwani</span>
+                          <span className="font-spec-code-sm text-[10px] text-secondary">View</span>
+                        </Link>
+                        <Link
+                          href="/collections?category=Trousers"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex items-center justify-between py-2 text-on-surface-variant hover:text-secondary min-h-[44px]"
+                        >
+                          <span>Bengal Gurkha Pants</span>
+                          <span className="font-spec-code-sm text-[10px] text-secondary">View</span>
+                        </Link>
+                        <Link
+                          href="/collections?category=Shirt"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex items-center justify-between py-2 text-on-surface-variant hover:text-secondary min-h-[44px]"
+                        >
+                          <span>Irish Linen Heritage Shirts</span>
+                          <span className="font-spec-code-sm text-[10px] text-secondary">View</span>
+                        </Link>
+                        <Link
+                          href="/collections"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-2 text-secondary font-bold font-label-caps text-xs uppercase tracking-wider border-t border-outline-variant/30 mt-1 min-h-[44px]"
+                        >
+                          Complete 2025 Catalog →
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+
+                  <Link
+                    href="/about"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-between py-3 px-2 text-on-surface border-b border-outline-variant/30 min-h-[44px]"
+                  >
+                    <span>About the Atelier</span>
+                    <ArrowRight className="w-4 h-4 text-outline" />
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-between py-3 px-2 text-on-surface border-b border-outline-variant/30 min-h-[44px]"
+                  >
+                    <span>Bespoke Concierge & Lounge</span>
+                    <ArrowRight className="w-4 h-4 text-outline" />
+                  </Link>
+
+                  <Link
+                    href="/tracking/OD-DHAKA-8492"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-between py-3 px-2 text-secondary font-bold border-b border-outline-variant/30 min-h-[44px]"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Package className="w-4 h-4" />
+                      Live Order Telemetry
+                    </span>
+                    <span className="text-xs">→</span>
+                  </Link>
+                </div>
+
+                {/* Currency Switcher */}
+                <div className="pt-2">
+                  <span className="font-spec-code-sm text-[10px] uppercase tracking-wider text-on-surface-variant block mb-1.5 font-bold">
+                    Currency Settlement
+                  </span>
+                  <div className="grid grid-cols-4 gap-1">
+                    {(['BDT', 'USD', 'GBP', 'EUR'] as const).map((cur) => (
+                      <button
+                        key={cur}
+                        type="button"
+                        onClick={() => setCurrency(cur)}
+                        className={`py-2 text-center font-spec-code-sm text-xs border min-h-[44px] transition-colors ${
+                          currency === cur
+                            ? 'bg-secondary text-on-secondary border-secondary font-bold'
+                            : 'bg-surface-container-low border-outline-variant/60 text-on-surface'
+                        }`}
+                      >
+                        {cur}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Drawer Footer Account Shortcut */}
+              <div className="p-space-md border-t border-outline-variant/40 bg-surface-container-low/60 space-y-2">
+                {patron ? (
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="font-bold text-on-surface text-sm block">{patron.name}</span>
+                      <span className="font-spec-code-sm text-[10px] text-secondary">
+                        {patron.tier || 'VIP Patron'}
+                      </span>
+                    </div>
+                    <Link
+                      href="/account"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="bg-primary text-on-primary px-3 py-2 text-xs font-label-caps uppercase tracking-wider font-bold min-h-[44px] flex items-center"
+                    >
+                      Dossier
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-2 gap-2">
+                    <Link
+                      href="/login"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-center bg-primary text-on-primary py-2.5 font-label-caps text-xs uppercase tracking-widest font-bold min-h-[44px] flex items-center justify-center"
+                    >
+                      Sign In
+                    </Link>
+                    <Link
+                      href="/signup"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-center border border-outline-variant text-on-surface py-2.5 font-label-caps text-xs uppercase tracking-widest font-bold min-h-[44px] flex items-center justify-center hover:bg-surface-container-high"
+                    >
+                      Join Atelier
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       )}

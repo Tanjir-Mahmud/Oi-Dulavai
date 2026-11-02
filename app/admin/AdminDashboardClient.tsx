@@ -241,7 +241,7 @@ export default function AdminDashboardClient({
                   </div>
                   <button
                     onClick={() => handleRestock(v.id, v.inventoryCount)}
-                    className="bg-[#D8B467] text-[#070C14] hover:bg-white px-2 py-1 font-label-caps text-[9px] uppercase font-bold tracking-wider transition-colors"
+                    className="bg-[#D8B467] text-[#070C14] hover:bg-white px-3 py-2 font-label-caps text-[10px] uppercase font-bold tracking-wider transition-colors min-h-[44px] min-w-[88px] flex items-center justify-center shrink-0"
                   >
                     +10 Restock
                   </button>
@@ -280,14 +280,20 @@ export default function AdminDashboardClient({
                           </span>
                         </div>
                         <p className="text-gray-300 font-sans mt-0.5">
-                          Patron: <strong>{o.patronName}</strong> ({o.patronPhone})
+                          Patron: <strong>{o.patronName}</strong> •{' '}
+                          <a
+                            href={`tel:${o.patronPhone}`}
+                            className="text-[#D8B467] underline hover:text-white"
+                          >
+                            {o.patronPhone}
+                          </a>
                         </p>
                         <p className="text-gray-400 text-[11px] truncate max-w-md">
                           Destination: {o.shippingAddress}, {o.shippingCity}
                         </p>
                       </div>
 
-                      <div className="text-right">
+                      <div className="text-right shrink-0">
                         <span className="font-bold text-white text-sm block">
                           ৳ {o.totalAmount.toLocaleString('en-US')}
                         </span>
@@ -295,13 +301,13 @@ export default function AdminDashboardClient({
                       </div>
                     </div>
 
-                    {/* State Machine Action Transitions */}
-                    <div className="flex flex-wrap gap-1.5 pt-1">
+                    {/* State Machine Action Transitions with Touch-Friendly Targets */}
+                    <div className="flex flex-wrap gap-2 pt-2">
                       {o.status !== 'CONFIRMED' && o.status !== 'DELIVERED' && (
                         <button
                           onClick={() => handleUpdateStatus(o.id, 'CONFIRMED')}
                           disabled={isUpdating}
-                          className="px-2 py-1 bg-blue-900/40 border border-blue-700 text-blue-300 hover:bg-blue-800 text-[10px] uppercase font-bold transition-colors"
+                          className="px-3 py-2 bg-blue-900/40 border border-blue-700 text-blue-300 hover:bg-blue-800 text-[11px] uppercase font-bold transition-colors min-h-[44px] flex items-center justify-center"
                         >
                           → Confirm
                         </button>
@@ -311,7 +317,7 @@ export default function AdminDashboardClient({
                         <button
                           onClick={() => handleUpdateStatus(o.id, 'PACKAGING')}
                           disabled={isUpdating}
-                          className="px-2 py-1 bg-yellow-900/40 border border-yellow-700 text-yellow-300 hover:bg-yellow-800 text-[10px] uppercase font-bold transition-colors"
+                          className="px-3 py-2 bg-yellow-900/40 border border-yellow-700 text-yellow-300 hover:bg-yellow-800 text-[11px] uppercase font-bold transition-colors min-h-[44px] flex items-center justify-center"
                         >
                           → Package
                         </button>
@@ -321,7 +327,7 @@ export default function AdminDashboardClient({
                         <button
                           onClick={() => handleUpdateStatus(o.id, 'SHIPPED')}
                           disabled={isUpdating}
-                          className="px-2 py-1 bg-purple-900/40 border border-purple-700 text-purple-300 hover:bg-purple-800 text-[10px] uppercase font-bold transition-colors"
+                          className="px-3 py-2 bg-purple-900/40 border border-purple-700 text-purple-300 hover:bg-purple-800 text-[11px] uppercase font-bold transition-colors min-h-[44px] flex items-center justify-center"
                         >
                           → Dispatch Van
                         </button>
@@ -331,7 +337,7 @@ export default function AdminDashboardClient({
                         <button
                           onClick={() => handleUpdateStatus(o.id, 'DELIVERED')}
                           disabled={isUpdating}
-                          className="px-2 py-1 bg-emerald-900/40 border border-emerald-700 text-emerald-300 hover:bg-emerald-800 text-[10px] uppercase font-bold transition-colors"
+                          className="px-2.5 py-2 bg-emerald-900/40 border border-emerald-700 text-emerald-300 hover:bg-emerald-800 text-[11px] uppercase font-bold transition-colors min-h-[44px] flex items-center justify-center"
                         >
                           ✓ Mark Delivered
                         </button>
@@ -340,7 +346,7 @@ export default function AdminDashboardClient({
                       <Link
                         href={`/order-confirmation/${o.orderNumber}`}
                         target="_blank"
-                        className="px-2 py-1 border border-gray-700 text-gray-300 hover:bg-gray-800 text-[10px] uppercase transition-colors"
+                        className="px-3 py-2 border border-gray-700 text-gray-300 hover:bg-gray-800 text-[11px] uppercase transition-colors min-h-[44px] flex items-center justify-center"
                       >
                         Print VAT Slip
                       </Link>

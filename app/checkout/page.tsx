@@ -208,7 +208,7 @@ export default function CheckoutPage() {
             </h1>
           </div>
 
-          <div className="flex items-center gap-4 font-spec-code-sm text-spec-code-sm">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 font-spec-code-sm text-spec-code-sm">
             <span className="text-secondary font-bold flex items-center gap-1">
               <CheckCircle2 className="w-4 h-4" /> 1. Identity
             </span>

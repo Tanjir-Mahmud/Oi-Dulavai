@@ -67,10 +67,10 @@ export default async function HomePage() {
             </div>
 
             <div className="space-y-space-xs">
-              <h1 className="font-headline-xl text-headline-xl text-surface-container-lowest leading-none tracking-tight">
+              <h1 className="font-headline-xl text-3xl sm:text-4xl md:text-5xl lg:text-headline-xl text-surface-container-lowest leading-none tracking-tight">
                 The Imperial Panjabi
               </h1>
-              <p className="font-body-lg text-body-lg text-surface-variant max-w-lg leading-relaxed">
+              <p className="font-body-lg text-sm sm:text-base md:text-body-lg text-surface-variant max-w-lg leading-relaxed">
                 Sculptural silhouettes hand-loomed in Rajshahi. Built with zero excess, punctuated with antique brass bullion.
               </p>
             </div>
