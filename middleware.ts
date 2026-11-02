@@ -27,9 +27,9 @@ export async function middleware(request: NextRequest) {
     default-src 'self';
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    img-src 'self' blob: data: https://lh3.googleusercontent.com https://images.unsplash.com;
+    img-src 'self' blob: data: https://lh3.googleusercontent.com https://images.unsplash.com https://*.vercel.app;
     font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self';
+    connect-src 'self' https://*.vercel.app https://*.vercel-insights.com https://vitals.vercel-insights.com;
     frame-ancestors 'none';
   `.replace(/\s{2,}/g, ' ').trim();
 

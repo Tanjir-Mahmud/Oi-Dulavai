@@ -14,59 +14,64 @@ export interface ProductFilterOptions {
 
 export const productService = {
   async getAll(options: ProductFilterOptions = {}) {
-    const { category, fabric, size, minPrice, maxPrice, sort = 'newest', query, limit = 50 } = options;
+    try {
+      const { category, fabric, size, minPrice, maxPrice, sort = 'newest', query, limit = 50 } = options;
 
-    const where: any = {};
+      const where: any = {};
 
-    if (category && category !== 'All') {
-      where.category = { equals: category };
-    }
+      if (category && category !== 'All') {
+        where.category = { equals: category };
+      }
 
-    if (fabric && fabric !== 'All') {
-      where.fabric = { contains: fabric };
-    }
+      if (fabric && fabric !== 'All') {
+        where.fabric = { contains: fabric };
+      }
 
-    if (minPrice !== undefined || maxPrice !== undefined) {
-      where.basePrice = {};
-      if (minPrice !== undefined) where.basePrice.gte = minPrice;
-      if (maxPrice !== undefined) where.basePrice.lte = maxPrice;
-    }
+      if (minPrice !== undefined || maxPrice !== undefined) {
+        where.basePrice = {};
+        if (minPrice !== undefined) where.basePrice.gte = minPrice;
+        if (maxPrice !== undefined) where.basePrice.lte = maxPrice;
+      }
 
-    if (size && size !== 'All') {
-      where.variants = {
-        some: {
-          size: { equals: size },
+      if (size && size !== 'All') {
+        where.variants = {
+          some: {
+            size: { equals: size },
+          },
+        };
+      }
+
+      if (query && query.trim()) {
+        where.OR = [
+          { name: { contains: query } },
+          { description: { contains: query } },
+          { fabric: { contains: query } },
+          { category: { contains: query } },
+          { sku: { contains: query } },
+        ];
+      }
+
+      let orderBy: any = { createdAt: 'desc' };
+      if (sort === 'price-asc') orderBy = { basePrice: 'asc' };
+      if (sort === 'price-desc') orderBy = { basePrice: 'desc' };
+      if (sort === 'popular') orderBy = { isTrending: 'desc' };
+
+      return await prisma.product.findMany({
+        where,
+        orderBy,
+        take: limit,
+        include: {
+          images: {
+            orderBy: { sortOrder: 'asc' },
+          },
+          variants: true,
+          hotspots: true,
         },
-      };
+      });
+    } catch (err) {
+      console.warn('[productService.getAll] Database query fallback during build:', err);
+      return [];
     }
-
-    if (query && query.trim()) {
-      where.OR = [
-        { name: { contains: query } },
-        { description: { contains: query } },
-        { fabric: { contains: query } },
-        { category: { contains: query } },
-        { sku: { contains: query } },
-      ];
-    }
-
-    let orderBy: any = { createdAt: 'desc' };
-    if (sort === 'price-asc') orderBy = { basePrice: 'asc' };
-    if (sort === 'price-desc') orderBy = { basePrice: 'desc' };
-    if (sort === 'popular') orderBy = { isTrending: 'desc' };
-
-    return prisma.product.findMany({
-      where,
-      orderBy,
-      take: limit,
-      include: {
-        images: {
-          orderBy: { sortOrder: 'asc' },
-        },
-        variants: true,
-        hotspots: true,
-      },
-    });
   },
 
   async getBySlug(slug: string) {
@@ -95,27 +100,37 @@ export const productService = {
   },
 
   async getFeatured() {
-    return prisma.product.findMany({
-      where: { isFeatured: true },
-      take: 6,
-      include: {
-        images: { orderBy: { sortOrder: 'asc' } },
-        variants: true,
-        hotspots: true,
-      },
-    });
+    try {
+      return await prisma.product.findMany({
+        where: { isFeatured: true },
+        take: 6,
+        include: {
+          images: { orderBy: { sortOrder: 'asc' } },
+          variants: true,
+          hotspots: true,
+        },
+      });
+    } catch (err) {
+      console.warn('[productService.getFeatured] Fallback during build:', err);
+      return [];
+    }
   },
 
   async getTrending() {
-    return prisma.product.findMany({
-      where: { isTrending: true },
-      take: 8,
-      include: {
-        images: { orderBy: { sortOrder: 'asc' } },
-        variants: true,
-        hotspots: true,
-      },
-    });
+    try {
+      return await prisma.product.findMany({
+        where: { isTrending: true },
+        take: 8,
+        include: {
+          images: { orderBy: { sortOrder: 'asc' } },
+          variants: true,
+          hotspots: true,
+        },
+      });
+    } catch (err) {
+      console.warn('[productService.getTrending] Fallback during build:', err);
+      return [];
+    }
   },
 
   async updateStock(variantId: string, newCount: number) {

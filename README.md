@@ -145,6 +145,38 @@ npm start
 
 ---
 
+## Deploying to Vercel
+
+The engine is pre-configured for zero-friction continuous deployment on [Vercel](https://vercel.com):
+
+### 1. Import to Vercel
+1. Navigate to **[vercel.com/new](https://vercel.com/new)** and import your repository: `https://github.com/Tanjir-Mahmud/Oi-Dulavai.git`.
+2. Vercel will automatically detect the **Next.js** framework and configure the build command (`npm run build`).
+
+### 2. Configure Environment Variables
+In the Vercel Project Settings (or during import), add the following environment variables:
+
+| Variable | Recommended Value / Provider | Notes |
+|---|---|---|
+| `DATABASE_URL` | `postgresql://...` (Neon / Supabase / Vercel Postgres) | Full connection string with SSL |
+| `JWT_SECRET` | e.g. `c9f37a6b29f0e1d84a75c091823746ab...` | 32+ character random secret |
+| `ADMIN_SECRET` | e.g. `royal_admin_secret_salt_2025` | Salt for admin console guard |
+| `NEXT_PUBLIC_APP_URL` | `https://your-project.vercel.app` | Production origin domain |
+
+> **Automated Database Switching:** The build script (`scripts/prepareVercel.mjs`) automatically inspects `DATABASE_URL`. If a PostgreSQL connection string is supplied, Prisma automatically switches the provider to `postgresql` and compiles the requisite Linux serverless binaries (`rhel-openssl-3.0.x`).
+
+### 3. Push Schema & Seed Remote Database
+Once your database is created on Neon/Supabase/Vercel Postgres, run from your local terminal:
+```bash
+# Push Prisma schema to remote Postgres
+DATABASE_URL="your-remote-postgres-url" npx prisma db push
+
+# Seed luxury menswear catalog and VIP patron accounts
+DATABASE_URL="your-remote-postgres-url" node prisma/seed.mjs
+```
+
+---
+
 ## Pre-Configured Demo Credentials
 
 | Role | Email | Password | Access Area |
