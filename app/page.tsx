@@ -83,14 +83,6 @@ export default async function HomePage() {
                 <span>Shop New Arrivals</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-
-              <Link
-                href="/product/nawab-tussar-silk-panjabi"
-                className="bg-primary/80 backdrop-blur-md text-surface-container-lowest px-6 py-3.5 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-all shadow-md flex items-center gap-space-xs border border-white/20"
-              >
-                <Sparkles className="w-4 h-4 text-secondary-fixed-dim" />
-                <span>Quick Bag • ৳ 16,800</span>
-              </Link>
             </div>
           </div>
 
