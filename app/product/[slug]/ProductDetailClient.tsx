@@ -193,30 +193,6 @@ export default function ProductDetailClient({ product }: ProductDetailProps) {
                     }`}
                   />
                 </button>
-
-                {/* Interactive Hotspots */}
-                {product.hotspots.map((h) => (
-                  <div
-                    key={h.id}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 group/pin cursor-pointer"
-                    style={{ top: `${h.yPos}%`, left: `${h.xPos}%` }}
-                  >
-                    <span className="relative flex h-8 w-8 items-center justify-center">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
-                      <span className="relative inline-flex rounded-full h-4 w-4 bg-secondary border-2 border-white shadow-md" />
-                    </span>
-
-                    {/* Tooltip */}
-                    <div className="hidden group-hover/pin:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 bg-primary/95 text-on-primary p-2.5 shadow-2xl backdrop-blur-md border border-secondary/50 font-spec-code text-center z-20">
-                      <p className="font-bold text-secondary-fixed-dim text-xs uppercase">{h.label}</p>
-                      <p className="text-[11px] text-surface-variant mt-0.5">{h.spec}</p>
-                    </div>
-                  </div>
-                ))}
-
-                <div className="absolute bottom-3 right-3 bg-primary/70 text-on-primary px-3 py-1 font-spec-code-sm text-[10px] backdrop-blur-sm">
-                  Interactive Micro-Focal Zoom Active
-                </div>
               </div>
             </div>
 

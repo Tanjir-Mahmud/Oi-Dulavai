@@ -211,48 +211,18 @@ export default async function HomePage() {
               The Sovereign Banani Groom Ensemble
             </h2>
             <p className="font-body-md text-on-surface-variant max-w-2xl mt-1">
-              A 3-piece coordinated ensemble designed for evening receptions and royal matrimony. Tap the golden focal pins on the garment to view textile metadata.
+              A 3-piece coordinated ensemble designed for evening receptions and royal matrimony.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
-            {/* Interactive Image Hotspot Stage (Left 7 Cols) */}
+            {/* Runway Image Stage (Left 7 Cols) */}
             <div className="lg:col-span-7 relative aspect-[4/5] bg-surface-container overflow-hidden border border-outline-variant/60 shadow-xl">
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUaZI1Gxvpg47OY13E7EBIZI4Jh-L193R0U5mxFUk_6RigYy4tcIs1fIgKY4ULRu1IGUwY3a5zl-Za_fEvXlbDycztEVPacAKmcYv939EWhqKhHyRLuT2Wie8ONKAGuj3JkmoKOwspDPPY9haIFOO7Ae1Ve_3GNRIvZa_-_YHE7pllxPclvy9OquJqPWV6ItauobhXpRnQheJVaUI_OYfGl03VrM_MumGT-QQTwwo"
                 alt="Banani Groom Suite Runway Look"
                 className="w-full h-full object-cover"
               />
-
-              {/* Pin 1: Sherwani Chest Crest */}
-              <div
-                className="absolute top-[28%] left-[55%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer"
-                title="Hand Zardozi Crest"
-              >
-                <span className="relative flex h-8 w-8 items-center justify-center">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
-                  <span className="relative inline-flex rounded-full h-4 w-4 bg-secondary border-2 border-white shadow-md" />
-                </span>
-                <div className="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-primary/95 text-on-primary p-2 text-center text-xs shadow-xl backdrop-blur-md border border-secondary/40 font-spec-code">
-                  <p className="font-bold text-secondary-fixed-dim">Imperial Sherwani</p>
-                  <p className="text-[10px] text-surface-variant">340 GSM Mulberry Silk</p>
-                </div>
-              </div>
-
-              {/* Pin 2: Band Collar */}
-              <div
-                className="absolute top-[18%] left-[48%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer"
-                title="Band Collar"
-              >
-                <span className="relative flex h-8 w-8 items-center justify-center">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
-                  <span className="relative inline-flex rounded-full h-4 w-4 bg-secondary border-2 border-white shadow-md" />
-                </span>
-                <div className="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-primary/95 text-on-primary p-2 text-center text-xs shadow-xl backdrop-blur-md border border-secondary/40 font-spec-code">
-                  <p className="font-bold text-secondary-fixed-dim">24K Antique Bullion</p>
-                  <p className="text-[10px] text-surface-variant">Hand-couched wire placket</p>
-                </div>
-              </div>
 
               <div className="absolute bottom-4 left-4 bg-surface/90 backdrop-blur-md px-3 py-1 text-xs font-spec-code">
                 Model: 6&apos;1&quot; • Wearing Size 40 • Banani Flagship Sample
